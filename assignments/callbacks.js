@@ -41,24 +41,54 @@ const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
 
 function getLength(arr, cb) {
   // getLength passes the length of the array into the callback.
-}
+  return cb(arr.length);
+};
+const lengthTest = getLength(items, numberOfItems => `I have ${numberOfItems} item(s) in my backpack!`);
+
+console.log(lengthTest);
 
 function last(arr, cb) {
   // last passes the last item of the array into the callback.
+  return cb(arr[arr.length-1], cb);
 }
+const lastItemTest = last(items, lastItem => `${lastItem} is the last thing in my backpack.`);
+
+console.log(lastItemTest);
 
 function sumNums(x, y, cb) {
   // sumNums adds two numbers (x, y) and passes the result to the callback.
+  return cb(x + y, cb);
 }
+const sumTest = sumNums(1, 2, sumResult => (`The Sum is ${sumResult}`));
+
+console.log(sumTest);
 
 function multiplyNums(x, y, cb) {
   // multiplyNums multiplies two numbers and passes the result to the callback.
+  return cb(x * y, cb);
 }
+const multiplyTest = multiplyNums(5, 5, multiplyResult => (`The multiplication is ${multiplyResult}`));
+
+console.log(multiplyTest);
 
 function contains(item, list, cb) {
   // contains checks if an item is present inside of the given array/list.
   // Pass true to the callback if it is, otherwise pass false.
+  if (list.includes(item)){
+    return cb(true);
+  } else {
+    return cb(false);
+  };
 }
+const itemCheck = contains('Gum', items, itemStatement => {
+  if (itemStatement === true) {
+    return "Yes, it's in here!";
+  } else {
+    return "Out of luck!";
+  }
+});
+
+console.log(itemCheck);
 
 /* STRETCH PROBLEM */
 
