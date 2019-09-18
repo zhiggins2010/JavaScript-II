@@ -4,6 +4,13 @@
 // that manipulates variables defined in the outer scope.
 // The outer scope can be a parent function, or the top level of the script.
 
+const day = 'Tuesday';
+function greet() { 
+  const school = 'Lambda School';
+  return (`It\'s ${day} at ${school}!`);
+}
+
+console.log(greet());
 
 /* STRETCH PROBLEMS, Do not attempt until you have completed all previous tasks for today's project files */
 
